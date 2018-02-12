@@ -6,6 +6,24 @@ import { Home } from "./components/Home";
 
 
 class App extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            homeLink: "Home"
+        };
+    }
+
+    onGreet() {
+        alert("Hello");
+    }
+
+    onChangeLinkName(newName) {
+        this.setState({
+            homeLink: newName
+        });
+    }
+
     render() {
         var user = {
             name: "Max",
@@ -15,13 +33,19 @@ class App extends React.Component {
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col-xs10 col-xs-offset-1">
-                        <Header />
+                    <div className="col-sm12 col-sm-offset-0 col-md-10 col-md-offset-1">
+                        <Header homeLink={this.state.homeLink} />
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-xs10 col-xs-offset-1">
-                        <Home name={"Andre"} initialAge={22} user={user}>
+                    <div className="col-sm12 col-sm-offset-0 col-md-10 col-md-offset-1">
+                        <Home
+                            name={"Andre"}
+                            initialAge={22}
+                            user={user}
+                            greet={this.onGreet}
+                            changeLink={this.onChangeLinkName.bind(this)}
+                            initialLinkName={this.state.homeLink}>
                             <p>This paragraph is a child of Home</p>
                         </Home>
                     </div>
