@@ -21,8 +21,8 @@ class App extends React.Component {
                 </div>
                 <div className="row">
                     <div className="col-xs10 col-xs-offset-1">
-                        <Home name={"Andre"} age={22} user={user}>
-                            <p>This paragraph is a children of Home</p>
+                        <Home name={"Andre"} initialAge={22} user={user}>
+                            <p>This paragraph is a child of Home</p>
                         </Home>
                     </div>
                 </div>
